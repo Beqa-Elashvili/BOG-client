@@ -4,7 +4,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Button from "../(Components)/Button";
 import Input from "../(Components)/Input";
-import { Checkbox } from "antd";
+import { Checkbox, Spin } from "antd";
 import { IoClose } from "react-icons/io5";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { CiUser } from "react-icons/ci";
@@ -93,6 +93,7 @@ function Authentification() {
 
   const handleUser = async () => {
     try {
+      setLoadingLogin(true);
       const resp = await axios.get(`${url}/api/users/email/${userValue.email}`);
       setUserValue((prev) => ({
         ...prev,
@@ -106,6 +107,8 @@ function Authentification() {
       setIsValidEmail(false);
       setErrorMessage("მომხმარებელი ვერ მოიძებნა");
       return;
+    } finally {
+      setLoadingLogin(false);
     }
   };
 
@@ -159,19 +162,17 @@ function Authentification() {
 
   const handleLoginSubmit = async () => {
     try {
-      setLoadingLogin(true);
       setErrorMessage("");
       const user = await loginUser(userValue.email, userValue.password);
       localStorage.setItem("token", user.token);
       await getProtectedData();
     } catch (error) {
       console.log(error);
-    } finally {
-      setLoadingLogin(false);
     }
   };
   const loginUser = async (email: string, password: string): Promise<any> => {
     try {
+      setLoadingLogin(true);
       const response = await axios.post(`${url}/api/users/login`, {
         email,
         password,
@@ -183,6 +184,8 @@ function Authentification() {
         error.response?.data?.error || error.message
       );
       setErrorMessage("მომხმარებლის პაროლი არასწორია");
+    } finally {
+      setLoadingLogin(false);
     }
   };
 
@@ -225,7 +228,20 @@ function Authentification() {
                       ! {errorMessage}
                     </div>
                   )}
-                  <Button onClick={handleLoginSubmit}>შემდეგი</Button>{" "}
+
+                  <div className="relative flex items-center">
+                    <Button onClick={handleLoginSubmit}>შემდეგი</Button>
+                    {loadingLogin && (
+                      <Spin
+                        style={{
+                          position: "absolute",
+                          display: "flex",
+                          alignItems: "center",
+                          right: "12px",
+                        }}
+                      />
+                    )}
+                  </div>
                   <div>
                     <p className="text-[12px] text-center mt-8">
                       არ ხარ დარეგსტრირებული?
@@ -266,7 +282,19 @@ function Authentification() {
                   <p className="text-sm">მომხმარებლის დამახსოვრება</p>
                 </div>
                 <div className="mt-2">
-                  <Button onClick={handleUser}>შემდეგი</Button>
+                  <div className="relative flex items-center">
+                    <Button onClick={handleUser}>შემდეგი</Button>
+                    {loadingLogin && (
+                      <Spin
+                        style={{
+                          position: "absolute",
+                          display: "flex",
+                          alignItems: "center",
+                          right: "12px",
+                        }}
+                      />
+                    )}
+                  </div>
                 </div>
                 <div>
                   <p className="text-[12px] text-center mt-8">
@@ -404,7 +432,21 @@ function Authentification() {
                           }
                           label="პაროლი"
                         />
-                        <Button onClick={handleSubmit}>ანგარიშის შექმნა</Button>
+                        <div className="relative flex items-center">
+                          <Button onClick={handleSubmit}>
+                            ანგარიშის შექმნა
+                          </Button>
+                          {loadingRegistration && (
+                            <Spin
+                              style={{
+                                position: "absolute",
+                                display: "flex",
+                                alignItems: "center",
+                                right: "12px",
+                              }}
+                            />
+                          )}
+                        </div>
                       </div>
                     </>
                   )}

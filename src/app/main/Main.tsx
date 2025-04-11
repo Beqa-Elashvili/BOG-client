@@ -93,7 +93,7 @@ function page() {
       return costs;
     }
   };
-  const [succes, setSucces] = useState<boolean>(true);
+  const [succes, setSucces] = useState<boolean>(false);
 
   const [offerId, setOfferId] = useState<string>("");
 
