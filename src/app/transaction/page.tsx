@@ -223,7 +223,7 @@ function page() {
         </Form>
         {success && (
           <div className="absolute bg-black/50 flex justify-center items-center inset-0 text-white  w-full h-full z-10 ">
-            <div className="border flex flex-col items-center justify-center rounded-lg  bg-orange-500 w-5/6 h-2/12">
+            <div className="border flex flex-col gap-2 items-center justify-center rounded-lg  bg-orange-500 w-5/6 h-2/12">
               <h1>გადარიცხვა წარმატებით განხორციელდა</h1>
               <IoMdCheckmarkCircle className="text-orange-100  size-6 rounded-lg" />
             </div>
