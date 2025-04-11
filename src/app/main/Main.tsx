@@ -248,7 +248,7 @@ function page() {
             />
           </div>
         </div>
-        <div className="bg-gray-800 pb-14 text-start space-y-2 p-2 mt-4">
+        <div className="bg-gray-800 mb-2 text-start rounded-lg space-y-2 p-2 mt-4">
           <h1 className="font-semibold text-lg">სად</h1>
           <div>
             <Input
