@@ -105,7 +105,7 @@ function page() {
           <h1>დარეგისტრირებული მომხმარებლები</h1>
           <Select defaultValue={users && users[0].personalNumber}>
             {users?.map((item) => (
-              <Select.Option value={item.personalNumber}>
+              <Select.Option key={item.id} value={item.personalNumber}>
                 {item.personalNumber}
               </Select.Option>
             ))}
