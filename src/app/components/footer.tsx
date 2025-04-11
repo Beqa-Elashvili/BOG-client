@@ -16,7 +16,7 @@ function Footer() {
   };
 
   return (
-    <div className="sticky bottom-0 bg-gray-900 p-2 w-full flex justify-between items-center">
+    <div className=" bg-gray-900 p-2 w-full flex justify-between items-center">
       <div
         className={`flex flex-col items-center ${
           pathname === "/" && "text-orange-500"
@@ -39,7 +39,10 @@ function Footer() {
         <BiSolidOffer />
         <p className="text-[12px] font-semibold">შეთავაზებები</p>
       </div>
-      <div onClick={SignOut} className="flex flex-col items-center">
+      <div
+        onClick={SignOut}
+        className="flex cursor-pointer flex-col items-center"
+      >
         <VscSignOut />
         <p className="text-[12px] font-semibold">გამოსვლა</p>
       </div>

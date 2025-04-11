@@ -217,7 +217,7 @@ function Authentification() {
                     }
                     value={userValue.password}
                     name="password"
-                    type="text"
+                    type="password"
                     label="პაროლი"
                   />
                   {errorMessage && (

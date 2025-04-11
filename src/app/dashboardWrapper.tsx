@@ -17,7 +17,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="w-full  bg-black flex justify-center">
-      <div className="min-w-[375px] max-w-[430px] relative bg-gray-900 text-white  h-full min-h-screen">
+      <div className="min-w-[375px] relative  max-w-[430px] bg-gray-900 text-white  h-full min-h-screen">
         <div
           className={`${
             isUser && pathname !== "/transaction" ? "block" : "hidden"
@@ -26,7 +26,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           <Header />
         </div>
         <main>{children}</main>
-        <Footer />
+        <div className="sticky z-0 bottom-0 w-full max-w-[430px]">
+          <Footer />
+        </div> 
       </div>
     </div>
   );

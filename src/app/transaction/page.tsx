@@ -64,7 +64,7 @@ function page() {
   };
 
   return (
-    <div className="pb-12">
+    <div>
       <div className="p-2 flex items-center gap-4">
         <FaAngleLeft onClick={() => router.back()} className="cursor-pointer" />
         <h1 className="font-semibold">გადარიცხვები</h1>

@@ -100,7 +100,7 @@ function page() {
   if (storyId) {
     const story = stories.find((item) => item.id === storyId);
     return (
-      <div className="absolute z-30  pointer-events-none inset-0 text-center bg-black w-full h-full ">
+      <div className="absolute z-30   inset-0 text-center  bg-black w-full h-full ">
         <img
           className="h-full w-full  object-cover"
           src={story?.imageUrl}
@@ -147,7 +147,7 @@ function page() {
 
     const findOffer = activeOffers?.find((item) => item.offerId === offerId);
     return (
-      <div className="absolute p-2 inset-0 bg-white/10 w-full h-full z-10">
+      <div className="absolute z-30 p-2 inset-0 bg-gray-900 w-full h-full">
         <div className="mt-8 flex justify-between items-center">
           <FaAngleLeft
             className="cursor-pointer"
@@ -206,7 +206,7 @@ function page() {
       year: "numeric",
     }).format(date);
     return (
-      <div className="absolute z-10  inset-0 text-center bg-black w-full h-full">
+      <div className="absolute z-10 overflow-hidden inset-0 text-center bg-black w-full h-full">
         <div className="bg-gray-800 rounded-b-lg space-y-2 p-2">
           <div className="flex gap-4 items-center">
             <FaAngleLeft
@@ -489,7 +489,7 @@ function page() {
             <div
               onClick={() => setTransitionId(item.id)}
               key={item.id}
-              className="flex justify-between items-center"
+              className="flex  cursor-pointer justify-between items-center"
             >
               <div className="flex gap-2 items-center">
                 <div className="text-orange-500 border-gray-500 bg-gray-900 border rounded-full h-8 w-8 flex items-center justify-center">
