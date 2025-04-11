@@ -187,7 +187,7 @@ function Authentification() {
   };
 
   return (
-    <div className="min-h-screen overflow-hidden pb-12 ">
+    <div className="h-screen overflow-hidden ">
       {isRegister ? (
         <div className="bg-[#ff6022]">
           <img src="images/unnamed.webp" alt="BOG" />
@@ -412,7 +412,9 @@ function Authentification() {
               )}
             </div>
             <div
-              className={` text-white ${userValue.phoneNumber && userValue.personalNumber && "hidden"}  translate-y-0  p-4 px-4 transition-transform duration-1000 bg-gray-800 w-full min-h-screen h-full transform ${
+              className={` text-white ${
+                userValue.phoneNumber && userValue.personalNumber && "hidden"
+              }  translate-y-0  p-4 px-4 transition-transform duration-1000 bg-gray-800 w-full min-h-screen h-full transform ${
                 moveTop ? "translate-y-2" : "translate-y-40"
               }`}
             >

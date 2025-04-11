@@ -310,7 +310,7 @@ function page() {
   const formattedDate = `${day} ${month.slice(0, 3)}, ${year}`;
 
   return (
-    <div className="p-2 pb-12 flex flex-col gap-2 w-full">
+    <div className="p-2 flex flex-col gap-2 w-full">
       <Carousel
         slidesToScroll={2}
         centerPadding="30px 0px 0px 0px"

@@ -26,9 +26,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           <Header />
         </div>
         <main>{children}</main>
-        <div className="fixed z-20 w-full bottom-0">
-          <Footer />
-        </div>
+        <Footer />
       </div>
     </div>
   );
