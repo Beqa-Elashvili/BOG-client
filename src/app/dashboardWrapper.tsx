@@ -26,9 +26,13 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
           <Header />
         </div>
         <main>{children}</main>
-        <div className="sticky z-0 bottom-0 w-full max-w-[430px]">
+        <div
+          className={`sticky z-0 bottom-0 w-full max-w-[430px] ${
+            !isUser ? "hidden" : "block"
+          }`}
+        >
           <Footer />
-        </div> 
+        </div>
       </div>
     </div>
   );
